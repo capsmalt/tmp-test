@@ -11,3 +11,11 @@ test call
     TEST
 
     TESTTEST
+
+```git pull```
+
+`git pull`
+
+```sh
+git pull
+```
