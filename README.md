@@ -70,11 +70,51 @@ aaa
 
 # 1) Kubernetesクラスター(OCP4)の構築
 IPIを使用してK8s(OCP)クラスターを構築します。
+XXXX
 
+
+# 1) OCPコンソールツアー
 # 2) アプリケーションのデプロイ
 OCPはカタログ機能を備えています。JavaやPythonなどの各種ランタイムやデータベースなどのミドルウェアを簡単にK8s上で使うことができます。実際にカタログ上からK8s上にデプロイしてみましょう。
 
-                                                                                                                                          左側メニューからCatalog > Developer Catalog > Python を選択します。
+## 2-1) プロジェクトの作成
+1. ブラウザを立ち上げて **OCPコンソール** に接続します
+
+    - Console URL: `https://oauth-openshift.apps.ocp41-ipi-0611.k8show.net`
+    - Username: `capsmalt`
+    - Password: `xxxxxxxx`
+    
+    > 自身のOCPクラスターのログイン情報を使用してください。
+    > 
+ 
+1. Home > Projects > Create Project を選択します
+
+1. 任意のプロジェクト名を指定し，**Create** を選択します
+
+
+    >Tips:
+    >
+    >OCPではプロジェクトを作成することで，新規Namespace(=プロジェクト名)が生成されます。NamespaceはK8sクラスターを論理的に分離させることが可能なK8sリソースの一種です。例えば，アプリA用のNamespaceを`ns_appa`，アプリB用のNamespaceを`ns_appb`のように作成することで，同一のK8sクラスター内に存在するns_appaとns_appbが干渉しないように構成することも可能です。
+
+
+## 2-2) カタログからアプリケーションをデプロイ
+1. Catalog > Developer Catalog > Python を選択します
+
+    >Tips:
+    >
+    >Developer CatalogからPythonアプリケーションを作成することで以下のリソースが作成されます。
+    >- Build config
+    >    - Gitリポジトリからソースコードをビルド
+    >- Image stream
+    >    - ビルド済イメージのトラッキング
+    >- Deployment config    
+    >    - イメージ変更の際に新リビジョンにロールアウト
+    >- Service
+    >    - クラスター内にワークロードを公開
+    >- Route
+    >    - クラスター外にワークロードを公開
+
+1. 
 
 # 3) コンテナイメージのビルド&デプロイ
 各自のコンテナイメージを作成し，OCP上にデプロイします。
